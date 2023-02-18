@@ -1,18 +1,10 @@
 #!/usr/bin/env bash
 
-# This tags and uploads an image to Docker Hub
+dockerpath=tobisanh/op-ml
 
-# Step 1:
-# This is your Docker ID/path
-# dockerpath=<>
+kubectl run op-ml --image=$dockerpath --port=80 --labels app=op-ml
 
-# Step 2
-# Run the Docker Hub container with kubernetes
+kubectl get pods
 
-
-# Step 3:
-# List kubernetes pods
-
-# Step 4:
-# Forward the container port to a host
+kubectl forward-port op-ml 8000:80
 
